@@ -19,7 +19,8 @@ footer {
 
 footer{
     width: 100%;
-    padding: 50px 0px;
+    padding: 0px 0px;
+    padding-bottom: 20px;
     
     /*background-color: #d0f0f8;
     -webkit-mask-image: url("../Images/background-footer.svg");

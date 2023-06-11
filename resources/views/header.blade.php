@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#" style="font-family: 'Berkshire Swash'; font-weight: bold; font-size: 30px;">collabora.</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#">Explore</a></li>
+      <li><a href="{{url('/toExplore')}}">Explore</a></li>
       <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a href="#" style="box-sizing: border-box; border: 5px white;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
