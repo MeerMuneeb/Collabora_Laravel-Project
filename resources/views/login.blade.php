@@ -16,7 +16,7 @@
 </style>
 
     <div class="login_container">
-        <div class="row align-items-center justify-content-center" style="background-color: rgb(0, 0, 0); background-image: url('bg_1.jpg');">
+        <div class="row align-items-center justify-content-center" style="background-color: rgb(0, 0, 0); background-image: url('https://static.vecteezy.com/system/resources/previews/007/596/744/non_2x/abstract-digital-glossy-particles-and-lines-connected-3d-illustration-on-black-background-free-photo.jpg');">
             <div class="col-md-7" style="padding:20% 10%; background-color: rgb(250, 250, 250);">
                 <h3>Login to <strong  style="font-family: 'Berkshire Swash'; font-size: 28px;">collabora.</strong></h3>
                 <p class="mb-4">Welcome to collabora, Login in if you already have an account.</p>

@@ -5,7 +5,7 @@
         <div class="col-lg-6" style="color: #fff; padding: 10%">
 
             <h1 style="font-size: 50px;"><strong>Find the right</strong> <i>freelance service</i>,<strong>right away.</strong></h1>
-            <br>
+            <br><br>
             <button type="button" class="btn btn-secondary btn-lg btn-block" style="color: black" onclick="window.location.href = '{{ url('/toExplore') }}'"><strong>Explore</strong></button>
             {{-- <div class="text-left"><a class="btn btn-outline-dark" href="{{url('/toExplore')}}" >View options</a></div> --}}
             

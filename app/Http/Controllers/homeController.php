@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\Redirect;
 
 class homeController extends Controller
 {
-    function index(){
-        return view('home');
+    function index(Request $req){
+        if($req->session()->has('user')){
+            $user = $req->session()->get('user')['name'];
+            return view('home', ['user'=>$user]);
+        }else {
+            return view('home');
+        }
     }
     public function toExplore()
     {
