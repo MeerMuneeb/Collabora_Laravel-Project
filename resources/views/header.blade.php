@@ -39,7 +39,7 @@
         <li id="profile"><a style="color: #fff; font-weight: bold; text-transform: capitalize;"><span class="glyphicon glyphicon-user"></span> {{Session::get('user')['name']}}</a></li>
         <li id="logoutBtn"><a href="/logout" style="box-sizing: border-box; border: 5px white;"><span class="glyphicon glyphicon-log-in"></span></a></li>
       @else
-        <li id="signupBtn"><a href="/#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li id="signupBtn"><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li id="loginBtn"><a href="/login" style="box-sizing: border-box; border: 5px white;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       @endif
     </ul>

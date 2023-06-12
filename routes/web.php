@@ -24,7 +24,9 @@ Route::get('/logout', function () {
     return redirect('login');
 });
 
+Route::view('/signup', 'signup');
 Route::post('/login', [userController::class, 'login']);
+Route::post('/signup', [userController::class, 'signup']);
 Route::get('/', [homeController::class, 'index']);
 Route::get('/toExplore', [homeController::class, 'toExplore']);
 Route::get('/detail/{id}', [homeController::class, 'detail']);
