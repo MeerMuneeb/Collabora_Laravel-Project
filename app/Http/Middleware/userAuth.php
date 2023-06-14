@@ -15,7 +15,9 @@ class userAuth
      */
     public function handle(Request $request, Closure $next): Response
     {
-         if($request->path()=="login" && $request->session()->has('user')){
+        if($request->path()=="login" && $request->session()->has('user')){
+            return redirect('/');
+        }elseif($request->path()=="admin" && !$request->session()->has('admin')){
             return redirect('/');
         }
         return $next($request);

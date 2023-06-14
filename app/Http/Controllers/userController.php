@@ -11,13 +11,15 @@ class userController extends Controller
 {
     function login(Request $req){
         $user = User::where(['email'=>$req->email])->first();
-        if(!$user || !Hash::check($req->password,$user->password))
+        if($req->email === 'mmk@admin.com' && $req->password === 'admin')
+        {
+            $req->session()->put('admin',$user);
+            return redirect('/admin');
+        }
+        elseif(!$user || !Hash::check($req->password,$user->password))
         {
             echo '<script>alert("Username or Password is not matched");</script>';
             return redirect()->back();
-        }
-        elseif($req->email === 'mmk@admin.com' && $req->password === 'admin'){
-            return redirect('/admin');
         }
         else{
             $req->session()->put('user',$user);

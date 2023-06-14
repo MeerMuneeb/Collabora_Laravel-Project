@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\adminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,18 @@ Route::get('/login', function () {
 });
 
 Route::get('/logout', function () {
-    Session::forget('user');
+    if(Session::has('user')){
+        Session::forget('user');
+    }elseif(Session::has('admin')){
+        Session::forget('admin');
+    }    
     return redirect('login');
 });
+
+
+Route::get('/admin', [adminController::class, 'index']); 
+Route::get('/category', [adminController::class, 'categories']);
+
 
 Route::view('/signup', 'signup');
 Route::post('/login', [userController::class, 'login']);
