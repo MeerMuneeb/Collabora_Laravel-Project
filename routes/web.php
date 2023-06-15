@@ -32,6 +32,7 @@ Route::get('/logout', function () {
 
 Route::get('/admin', [adminController::class, 'index']); 
 Route::get('/category', [adminController::class, 'categories']);
+Route::post('/addCategory', [adminController::class, 'addCategory']);
 
 
 Route::view('/signup', 'signup');

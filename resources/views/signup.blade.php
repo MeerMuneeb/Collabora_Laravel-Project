@@ -24,7 +24,7 @@
                 <form action="/signup" method="POST">
                     @csrf
                     <div class="form-group first">
-                        <label for="username">Email Address</label>
+                        <label for="email">Email Address</label>
                         <input type="email" name="email" class="form-control" placeholder="your-email@gmail.com" id="username" required>
                     </div>
                     <div class="form-group">

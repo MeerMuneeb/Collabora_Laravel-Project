@@ -86,4 +86,7 @@
             </div>
         </div>
     </main>
+    <script>
+        
+    </script>
 @endsection
