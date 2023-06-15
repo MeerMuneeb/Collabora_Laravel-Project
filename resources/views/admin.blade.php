@@ -23,6 +23,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
+                            
                             {{-- <div class="sb-sidenav-menu-heading">Interface</div> --}}                           
                             
                             <div class="sb-sidenav-menu-heading">Users and Services</div>
@@ -35,7 +36,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
                                 Categories
                             </a>
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="/services">
                                 <div class="sb-nav-link-icon"><i class="fas fa-cogs"></i></div>
                                 Services
                             </a>

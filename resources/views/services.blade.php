@@ -44,13 +44,20 @@
                         </tfoot>
                         
                         <tbody>
-                        @foreach ($category as $Cdata)
+                        @foreach ($service as $Sdata)
                             <tr>
-                                <td>{{ $Cdata->id }}</td>
+                                <td>{{ $Sdata->id }}</td>
                                 <td>
-                                    <div style="width: 200px; height: 200px; background-image: url('{{ $Cdata->image }}'); background-size: cover; background-position: center;"></div>
+                                    <div style="width: 200px; height: 200px; background-image: url('{{ $Sdata->picture }}'); background-size: cover; background-position: center;"></div>
                                 </td>
-                                <td>{{ $Cdata->name }}</td>
+                                <td>{{ $Sdata->name }}</td>
+                                <td>{{ $Sdata->category }}</td>
+                                <td>
+                                    <div style="max-width: 400px">
+                                        {{ $Sdata->description }}
+                                    </div>
+                                </td>
+                                <td>{{ $Sdata->price }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary">Edit</a>
                                     <form action="#" method="POST" style="display: inline;">
@@ -71,17 +78,34 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
+                    <h5 class="modal-title" id="addCategoryModalLabel">Add Service</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="/addCategory" method="POST" enctype="multipart/form-data">
+                    <form action="/addService" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="category_name">Category Name:</label>
-                            <input type="text" class="form-control" id="category_name" name="name" required>
+                            <label for="service_name">Service Title:</label>
+                            <input type="text" class="form-control" name="name" required>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea name="description" rows="4" maxlength="300" style="width: 100%;" required></textarea>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="category_name">Category:</label>
+                            <select id="category" name="category" required>
+                                <option value="" selected disabled>Select an option</option> 
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div><br>
+                        <div class="form-group">
+                            <label for="price">Price:</label>
+                            <input type="number" class="form-control" name="price" min="0" required>
                         </div>
                         <br>
                         <div class="form-group">
@@ -101,7 +125,7 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="category_image">Category Image:</label>
+                            <label for="category_image">Image:</label>
                             <div id="file_input_container">
                                 <input type="file" class="form-control-file" id="category_image" name="image" accept="image/*">
                             </div>
@@ -110,7 +134,7 @@
                             </div>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Add</button>
                     </form>
                 </div>
             </div>

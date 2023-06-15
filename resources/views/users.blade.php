@@ -47,10 +47,11 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Edit</a>
-                                    <form action="#" method="POST" style="display: inline;">
+                                    <a href="#" class="btn btn-primary edit-user" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $user->id }}" data-name="{{ $user->name }}" data-email="{{ $user->email }}">Edit</a>
+                                    {{-- <a href="{{ url('/deleteUser'.$user->id)}}" class="btn btn-danger" >Delete</a> --}}
+                                    <form action="/deleteUser" method="POST" style="display: inline;">
                                         @csrf
-                                        @method('DELETE')
+                                        <input type="hidden" class="form-control" name="Uid" value="{{ $user->id }}">
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
@@ -75,21 +76,59 @@
                     <form action="/addUser" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="category_name">User Name:</label>
-                            <input type="text" class="form-control" id="category_name" name="name" required>
+                            <label for="user_name">User Name:</label>
+                            <input type="text" class="form-control" name="name" required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="category_name">User Email:</label>
-                            <input type="text" class="form-control" id="category_name" name="email" required>
+                            <label for="user_email">User Email:</label>
+                            <input type="email" class="form-control" name="email" required>
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="category_name">User Password:</label>
-                            <input type="text" class="form-control" id="category_name" name="password" required>
+                            <label for="user_pass">User Password:</label>
+                            <input type="password" class="form-control" name="password" required>
                         </div>
                         <br>                        
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Add</button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addCategoryModalLabel">Add User</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/editUser" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                        
+                        <input type="hidden" class="form-control" name="Uid" id="edit_user_id" required>
+
+                        <div class="form-group">
+                            <label for="user_name">User Name:</label>
+                            <input type="text" class="form-control" name="name" id="edit_user_name" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="user_email">User Email:</label>
+                            <input type="email" class="form-control" name="email" id="edit_user_email" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="user_pass">User Password: <small class="form-text text-muted">Leave Blank If No Change.</small></label>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                        <br>                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Update</button>
                     </form>
                 </div>
                 
@@ -100,4 +139,18 @@
     <!-- Include necessary JavaScript files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('.edit-user').on('click', function() {
+            var userName = $(this).data('name');
+            var userEmail = $(this).data('email');
+            var userId = $(this).data('id');
+
+            $('#edit_user_name').val(userName);
+            $('#edit_user_email').val(userEmail);
+            $('#edit_user_id').val(userId);
+        });
+        });
+
+    </script>
 @endsection

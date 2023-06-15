@@ -32,9 +32,13 @@ Route::get('/logout', function () {
 
 Route::get('/admin', [adminController::class, 'index']); 
 Route::get('/category', [adminController::class, 'categories']);
-Route::get('/users', [adminController::class, 'users']);
 Route::post('/addCategory', [adminController::class, 'addCategory']);
+Route::get('/users', [adminController::class, 'users']);
 Route::post('/addUser', [adminController::class, 'addUser']);
+Route::put('/editUser', [adminController::class, 'editUser']);
+Route::post('/deleteUser', [adminController::class, 'deleteUser']);
+Route::get('/services', [adminController::class, 'services']);
+Route::post('/addService', [adminController::class, 'addService']);
 
 
 Route::view('/signup', 'signup');

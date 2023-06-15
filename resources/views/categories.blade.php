@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-success">Add</button>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Add</button>
                     </form>
                 </div>
             </div>
