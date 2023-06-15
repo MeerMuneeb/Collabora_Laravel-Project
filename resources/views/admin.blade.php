@@ -27,7 +27,7 @@
                             
                             <div class="sb-sidenav-menu-heading">Users and Services</div>
                             
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="/users">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Users
                             </a>

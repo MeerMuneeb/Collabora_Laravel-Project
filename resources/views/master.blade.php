@@ -29,7 +29,6 @@
    @yield('content')
    {{View::make('footer')}}
 
-   @yield('scripts')
 
    
 

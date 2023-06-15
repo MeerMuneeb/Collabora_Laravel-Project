@@ -10,13 +10,19 @@ use App\Models\User;
 class userController extends Controller
 {
     function login(Request $req){
-        $user = User::where(['email'=>$req->email])->first();
         if($req->email === 'mmk@admin.com' && $req->password === 'admin')
         {
-            $req->session()->put('admin',$user);
+            
+            $admin = new User;
+            $admin->name = "admin";
+            $admin->email = $req->email;
+            $admin->password = $req->password;
+            $req->session()->put('admin',$admin);
             return redirect('/admin');
         }
-        elseif(!$user || !Hash::check($req->password,$user->password))
+        
+        $user = User::where(['email'=>$req->email])->first();
+        if(!$user || !Hash::check($req->password,$user->password))
         {
             echo '<script>alert("Username or Password is not matched");</script>';
             return redirect()->back();

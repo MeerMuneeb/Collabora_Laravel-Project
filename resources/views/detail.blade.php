@@ -2,7 +2,9 @@
 @section("content")
 
 
-<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+
+{{-- <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -24,7 +26,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <section class="py-5" style="margin-top:-50px;">
     
     <div class="jumbotron jb">
@@ -49,11 +51,38 @@
                     <br>
                     <h4>{{$service['description']}}</h4>
                     <br>
-                    <div class="text-center"><a class="btn btn-dark purchase_button" value="{{$service->id}}"><h2>Purchase</h2></a></div>
+                    <div class="text-center"><a class="btn btn-dark purchase_button" data-toggle="modal" data-target="#addCategoryModal"><h2>Purchase</h2></a></div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="modal fade" id="addCategoryModal" tabindex="-1" role="dialog" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="addCategoryModalLabel">Add Category</h3>
+                </div>
+                <div class="modal-body">
+                    Are You Sure you want to Purchase this service in 
+                    <h4><center><strong>${{$service['price']}}</strong>?</center></h4>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                    <form action="/purchased" method="POST">
+                        @csrf
+                        <input type="hidden" name="service_id" value={{$service['id']}}>
+                        <button type="submit" class="btn btn-success">YES</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include necessary JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     {{-- <div class="container-fluid detail-service">
         <center>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
@@ -83,19 +112,5 @@
         
     </div> --}}
 </section>
-@endsection
-
-@section('scripts')
-<script>
-    $(document).ready(function() {
-        $('.purchase_button').click(function (e){
-            e.preventDefault();
-
-            var category_id = $(this).val();
-            $('#confirmationModal').modal('show');
-            
-        });
-    });
-</script>
 @endsection
 
