@@ -79,6 +79,148 @@
   --bs-highlight-bg: #fff3cd;
 }
 
+.homepage-container {
+  max-width: 1600px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.homepage-heading {
+  font-family: "Macan,Helvetica Neue,Helvetica,Arial", sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.category-card {
+  position: relative;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin: 10px 5px;
+  padding: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.category-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust the opacity value as needed */
+  z-index: 1;
+}
+
+.category-card img {
+  position: relative;
+  z-index: 2;
+}
+
+.category-card:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.category-card .category {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category-card .content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.category-name {  
+  
+  position: relative;
+  z-index: 2;
+  font-weight: bold;
+  color: white;
+  font-size: 24px;  
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.category-button {
+  text-decoration: none;
+}
+
+.category-button:hover {
+  text-decoration: none;
+  font-size: 32px;
+}
+
+.homepage-container-2 {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+}
+
+.homepage-container-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(https://images.pexels.com/photos/355904/pexels-photo-355904.jpeg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transform: scaleX(-1);
+  z-index: -1;
+}
+
+.fluid-container {
+  max-width: 1600px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.left-section {
+  text-align: left;
+  margin-left: 0;
+  padding-top: 30px;
+  color: white;
+  font-weight: bold;
+  max-width: 600px;
+}
+
+.bullet-points li {
+  list-style: none;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
+.bullet-points li:before {
+  content: "\e013";
+  font-family: "Glyphicons Halflings";
+  position: absolute;
+  left: 0;
+  color: white;
+  font-size: 14px;
+}
+
 .img-set{
   position: absolute;
   top: 0;

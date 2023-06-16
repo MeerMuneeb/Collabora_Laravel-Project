@@ -8,6 +8,8 @@
     
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    <link href="{{ asset('styles.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/owl.carousel.css') }}" rel="stylesheet">
+   <link href="{{ asset('css/owl.theme.default.css') }}" rel="stylesheet">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
    <script src="{{ asset('js/script.js') }}"></script>
@@ -28,7 +30,6 @@
    {{View::make('header')}}
    @yield('content')
    {{View::make('footer')}}
-
 
    
 

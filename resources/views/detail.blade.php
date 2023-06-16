@@ -37,10 +37,10 @@
     <div class="container-fluid serv_details" >
         <div class="row">
             <div class="col-12">
-                <div class="col-lg-7" style="background-color: aqua; height:600px; border:2px solid; border-radius: 20px; overflow:hidden;">
+                <div class="col-lg-8" style="background-color: aqua; height:600px; border:2px solid; border-radius: 20px; overflow:hidden;">
                     <img class="img-set" src="{{$service['picture']}}" />
                 </div>
-                <div class="col-lg-4" style="padding-top: 4%; background-color: rgb(255, 255, 255); height:600px; border-radius:20px; border: 1px solid; margin: 0 2%; overflow:hidden;">
+                <div class="col-lg-4" style="padding-top: 4%; background-color: rgb(255, 255, 255); height:600px; border-radius:20px; border: 1px solid; overflow:hidden;">
                     
                     <a href="/">
                         <i class="glyphicon glyphicon-arrow-left"></i> Go Back
@@ -79,6 +79,56 @@
             </div>
         </div>
     </div>
+
+    <br><br><br><hr><br>
+    <div class="homepage-container">
+        <h1 class="homepage-heading">More Services</h1>
+        <div class="owl-carousel service_carousel owl-theme">
+    
+            @foreach($services as $item)
+                    <div class="card h-100">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{{$item['picture']}}" />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-left">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{$item['name']}}</h5>
+                                <!-- Product price-->
+                                ${{$item['price']}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-outline-dark" href="/detail/{{$item['id']}}" >View options</a></div>
+                        </div>
+                    </div>
+            @endforeach
+    
+        </div>
+    </div>
+    <br><br>
+
+    <script src="{{ asset('js/owl.carousel.js') }}"></script>
+    <script>
+        $('.service_carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            dots: false,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5.5
+                }
+            }
+        })
+    </script>
 
     <!-- Include necessary JavaScript files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

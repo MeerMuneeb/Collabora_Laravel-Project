@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Models\Order;
+use App\Models\Category;
 use Illuminate\Console\View\Components\Alert;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -10,11 +11,13 @@ use Illuminate\Support\Facades\Redirect;
 class homeController extends Controller
 {
     function index(Request $req){
+        $categories = Category::all();
+        $Sdata = Service::all();
         if($req->session()->has('user')){
             $user = $req->session()->get('user')['name'];
-            return view('home', ['user'=>$user]);
+            return view('home', ['user'=>$user, 'categories'=>$categories, 'services'=>$Sdata]);
         }else {
-            return view('home');
+            return view('home', ['categories'=>$categories, 'services'=>$Sdata]);
         }
     }
     public function toExplore()
@@ -27,7 +30,8 @@ class homeController extends Controller
     function detail($id){
 
         $data = Service::find($id);
-        return view('detail', ['service'=>$data]);
+        $Sdata = Service::all();
+        return view('detail', ['service'=>$data, 'services'=>$Sdata]);
     }
 
     function purchased(Request $req){

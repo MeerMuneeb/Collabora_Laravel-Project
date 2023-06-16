@@ -34,5 +34,7 @@
         </center>
         
     </div>
+
+    
 </section>
 @endsection
