@@ -14,7 +14,7 @@ class adminController extends Controller
 {
     function index(){
         $order = Order::all();
-        return view('dashboard');
+        return view('dashboard', ['orders'=>$order]);
     }
 
     function categories(){
@@ -33,6 +33,30 @@ class adminController extends Controller
         $category->image=$req->image;
         $category->save();
         return redirect('/category');
+    }
+
+    // function editCategory(Request $req){
+    //     $service = Service::find($req->Sid);        
+    //     $service->name=$req->name;
+    //     if (!empty($req->image)) {
+    //         $service->picture=$req->image;
+    //     }
+    //     $service->category=$req->category;
+    //     $service->description=$req->description;
+    //     $service->price=$req->price;
+    //     $service->save();
+    //     return redirect('/category');
+    // }
+
+    //IMPORTANT NEED TO DELETE ORDERS AND SERVICES IF ANY CATEGORY IS DELETED
+    function deleteCategory(Request $req){
+        $category = Category::find($req->Cid);
+        if ($category) {
+            $category->delete();
+            return redirect('/category');
+        }else {
+            return redirect('/category');
+        }
     }
 
     function addUser(Request $req){
@@ -71,7 +95,7 @@ class adminController extends Controller
     }
 
     function addService(Request $req){
-        $service = new service;
+        $service = new Service;
         $service->name=$req->name;
         $service->picture=$req->image;
         $service->category=$req->category;
@@ -79,5 +103,28 @@ class adminController extends Controller
         $service->price=$req->price;
         $service->save();
         return redirect('/services');
+    }
+
+    function editService(Request $req){
+        $service = Service::find($req->Sid);        
+        $service->name=$req->name;
+        if (!empty($req->image)) {
+            $service->picture=$req->image;
+        }
+        $service->category=$req->category;
+        $service->description=$req->description;
+        $service->price=$req->price;
+        $service->save();
+        return redirect('/services');
+    }
+
+    function deleteService(Request $req){
+        $service = Service::find($req->Sid);
+        if ($service) {
+            $service->delete();
+            return redirect('/services');
+        }else {
+            return redirect('/services');
+        }
     }
 }

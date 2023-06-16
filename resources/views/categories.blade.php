@@ -47,9 +47,9 @@
                                 <td>{{ $Cdata->name }}</td>
                                 <td>
                                     <a href="#" class="btn btn-primary">Edit</a>
-                                    <form action="#" method="POST" style="display: inline;">
+                                    <form action="/deleteCategory" method="POST" style="display: inline;">
                                         @csrf
-                                        @method('DELETE')
+                                        <input type="hidden" class="form-control" name="Cid" value="{{ $Cdata->id }}">
                                         <button type="submit" class="btn btn-danger">Delete</button>
                                     </form>
                                 </td>
