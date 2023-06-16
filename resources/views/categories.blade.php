@@ -46,7 +46,7 @@
                                 </td>
                                 <td>{{ $Cdata->name }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Edit</a>
+                                    <a href="#" class="btn btn-primary edit-category" data-toggle="modal" data-target="#editCategoryModal" data-id="{{ $Cdata->id }}" data-name="{{ $Cdata->name }}" data-image="{{ $Cdata->image }}">Edit</a>
                                     <form action="/deleteCategory" method="POST" style="display: inline;">
                                         @csrf
                                         <input type="hidden" class="form-control" name="Cid" value="{{ $Cdata->id }}">
@@ -110,6 +110,60 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="editCategoryModal" tabindex="-1" role="dialog" aria-labelledby="editCategoryModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editCategoryModalLabel">Edit Category</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/editCategory" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')                        
+                        <input type="hidden" class="form-control" name="Cid" id="edit_category_id" required>
+                        <div class="form-group">
+                            <label for="category_name">Category Name:</label>
+                            <input type="text" class="form-control" name="name" id="edit_category_name" required>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="image2_option">Image Source:</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="image2_option" id="image2_option_file" value="file" checked>
+                                <label class="form-check-label" for="image2_option_file">
+                                    Choose File
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="image2_option" id="image2_option_url" value="url">
+                                <label class="form-check-label" for="image2_option_url">
+                                    Add Image URL
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="category_image">New Image:</label>
+                            <div id="file2_input_container">
+                                <input type="file" class="form-control-file" id="category_image" name="image" accept="image/*">
+                            </div>
+                            <div id="url2_input_container" style="display: none;">
+                                <input type="text" class="form-control" id="category_image_url" name="image">
+                            </div>
+                        </div>
+                        <br>
+                        <small class="form-text text-muted">Original Image.</small>
+                        <div style="width: 200px; height: 200px; background-size: cover; background-position: center; border-radius: 10px; " id="edit_category_image"></div>
+                        <br>
+                        <button type="submit" class="btn btn-success" style="width: 100%;">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Include necessary JavaScript files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -125,6 +179,31 @@
                     $('#url_input_container').show();
                 }
             });
+        });
+
+        $(document).ready(function() {
+            $('input[name="image2_option"]').change(function() {
+                if ($(this).val() === 'file') {
+                    $('#file2_input_container').show();
+                    $('#url2_input_container').hide();
+                } else {
+                    $('#file2_input_container').hide();
+                    $('#url2_input_container').show();
+                }
+            });
+        });
+
+        $(document).ready(function() {
+        $('.edit-category').on('click', function() {
+            var categoryID = $(this).data('id');
+            var categoryName = $(this).data('name');
+            var categoryImage = $(this).data('image');
+
+            $('#edit_category_id').val(categoryID);
+            $('#edit_category_name').val(categoryName);
+            $('#edit_category_image').css('background-image', 'url(' + categoryImage + ')');
+
+        });
         });
     </script>
 @endsection

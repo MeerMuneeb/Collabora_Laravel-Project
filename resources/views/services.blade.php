@@ -51,7 +51,13 @@
                                     <div style="width: 200px; height: 200px; background-image: url('{{ $Sdata->picture }}'); background-size: cover; background-position: center;"></div>
                                 </td>
                                 <td>{{ $Sdata->name }}</td>
-                                <td>{{ $Sdata->category }}</td>
+                                <td>
+                                    @foreach ($categories as $category)
+                                        @if ($category->id == $Sdata->category)
+                                            {{ $category->name }}
+                                        @endif
+                                    @endforeach    
+                                </td>
                                 <td>
                                     <div style="max-width: 400px">
                                         {{ $Sdata->description }}
@@ -106,7 +112,7 @@
                             <select id="category" name="category" required>
                                 <option value="" selected disabled>Select an option</option> 
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div><br>
@@ -173,7 +179,7 @@
                             <label for="category_name">Category:</label>
                             <select id="category" name="category" required>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->name }}">{{ $category->name }}</option>
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
                             </select>
                         </div><br>

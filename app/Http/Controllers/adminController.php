@@ -35,24 +35,31 @@ class adminController extends Controller
         return redirect('/category');
     }
 
-    // function editCategory(Request $req){
-    //     $service = Service::find($req->Sid);        
-    //     $service->name=$req->name;
-    //     if (!empty($req->image)) {
-    //         $service->picture=$req->image;
-    //     }
-    //     $service->category=$req->category;
-    //     $service->description=$req->description;
-    //     $service->price=$req->price;
-    //     $service->save();
-    //     return redirect('/category');
-    // }
+    function editCategory(Request $req){
+        $category = Category::find($req->Cid);        
+        $category->name=$req->name;
+        if (!empty($req->image)) {
+            $category->image=$req->image;
+        }
+        $category->save();
+        return redirect('/category');
+    }
 
     //IMPORTANT NEED TO DELETE ORDERS AND SERVICES IF ANY CATEGORY IS DELETED
     function deleteCategory(Request $req){
         $category = Category::find($req->Cid);
         if ($category) {
+
+            //Getting IDs
+            $serviceIds = Service::where('category', $req->Cid)->pluck('id')->toArray();
+            $orderIds = Order::whereIn('service_id', $serviceIds)->pluck('id')->toArray();
+
+
+            // Delete the category
             $category->delete();
+            Service::where('category', $req->Cid)->delete();
+            Order::whereIn('id', $orderIds)->delete();
+
             return redirect('/category');
         }else {
             return redirect('/category');
@@ -83,6 +90,7 @@ class adminController extends Controller
         $user = User::find($req->Uid);
         if ($user) {
             $user->delete();
+            Order::where('user_id', $req->Uid)->delete();
             return redirect('/users');
         }else {
             return redirect('/users');
@@ -121,7 +129,8 @@ class adminController extends Controller
     function deleteService(Request $req){
         $service = Service::find($req->Sid);
         if ($service) {
-            $service->delete();
+            $service->delete();            
+            Order::where('service_id', $req->Sid)->delete();
             return redirect('/services');
         }else {
             return redirect('/services');
