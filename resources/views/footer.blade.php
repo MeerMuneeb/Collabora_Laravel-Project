@@ -59,6 +59,7 @@ footer{
     margin-bottom: 30px;
     color: #343434;
     font-weight: 700;
+    font-size: 28px;
 }
 
 .box__footer a{
@@ -102,35 +103,39 @@ footer{
     <div class="container__footer">
         <div class="box__footer">
             <div class="logo">
-              <h1 style="font-family: 'Berkshire Swash';">collabora.</h1>
+              <h1 style="font-family: 'Berkshire Swash'; font-size: 40px;">collabora.</h1>
             </div>
             <div class="terms">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas impedit cum cumque velit libero officiis quam doloremque reprehenderit quae corporis! Delectus architecto officia praesentium atque laudantium, nam deleniti sapiente deserunt.</p>
+                <p>Unlock your potential with our affordable training services. Become a pro in various categories through our high-quality courses and gain valuable skills for personal and professional growth. Start your learning journey today!</p>
             </div>
         </div>
+
         <div class="box__footer">
-            <h2>Soluciones</h2>
-            <a href="https://www.google.com">App Desarrollo</a>
-            <a href="#">App Marketing</a>
-            <a href="#">IOS Desarrollo</a>
-            <a href="#">Android Desarrollo</a>
+            <h2>Popular Categories</h2>
+            <a href="https://www.google.com">Graphic Designing</a>
+            <a href="#">Video Editing</a>
+            <a href="#">Business Education</a>
+            <a href="#">Photography</a>
+            <a href="#">Martial Arts</a>
         </div>
 
         <div class="box__footer">
-            <h2>Compañia</h2>
-            <a href="#">Acerca de</a>
-            <a href="#">Trabajos</a>
-            <a href="#">Procesos</a>
-            <a href="#">Servicios</a>              
+            <h2>Popular Services</h2>
+            <a href="#">Logo Designing</a>
+            <a href="#">Reel Making</a>
+            <a href="#">Entrepreneurship Course</a>
+            <a href="#">Boxing in 60 Days</a>
+            <a href="#">Wildlife Photography</a>              
         </div>
 
         <div class="box__footer">
-            <h2>Redes Sociales</h2>
-            <a href="#"> <i class="fab fa-facebook-square"></i> Facebook</a>
-            <a href="#"><i class="fab fa-twitter-square"></i> Twitter</a>
-            <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
-            <a href="#"><i class="fab fa-instagram-square"></i> Instagram</a>
+            <h2>Social Links</h2>
+            <a href="https://www.facebook.com"><i class="fab fa-facebook-square"></i> Facebook</a>
+            <a href="https://www.twitter.com"><i class="fab fa-twitter-square"></i> Twitter</a>
+            <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i> Linkedin</a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram-square"></i> Instagram</a>
         </div>
+          
 
     </div>
 
