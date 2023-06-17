@@ -25,20 +25,20 @@
 
 <br>
 <div class="homepage-container">
-  <h1 class="homepage-heading">Categories</h1>
-  <div class="owl-carousel categories_carousel owl-theme">
+    <h1 class="homepage-heading">Categories</h1>
+    <div class="owl-carousel categories_carousel owl-theme">
 
-      @foreach ($categories as $category)
-          <div class="item">
-            <a href="#" class="category-button">
-              <div class="category-card" style="background-image: url('{{ $category->image }}');">
-                  <div class="category-overlay">
-                      <h2 class="category-name">{{ $category->name }}</h2>
-                  </div>
-              </div>
-            </a>
-          </div>
-      @endforeach
+        @foreach ($categories as $category)
+            <div class="item">
+                <a href="Cexplore/{{$category['id']}}" class="category-button">
+                <div class="category-card" style="background-image: url('{{ $category->image }}');">
+                    <div class="category-overlay">
+                        <h2 class="category-name">{{ $category->name }}</h2>
+                    </div>
+                </div>
+                </a>
+            </div>
+        @endforeach
 
   </div>
 </div>

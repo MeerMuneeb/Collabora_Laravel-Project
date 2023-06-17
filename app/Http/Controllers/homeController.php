@@ -34,6 +34,13 @@ class homeController extends Controller
         return view('detail', ['service'=>$data, 'services'=>$Sdata]);
     }
 
+    function Cexplore($id){
+
+        $data = Service::where('category', $id)->get();
+        $category = Category::find($id);
+        return view('Cexplore', ['services'=>$data, 'category'=>$category]);
+    }
+
     function purchased(Request $req){
         if($req->session()->has('user')){
             $order = new Order;
