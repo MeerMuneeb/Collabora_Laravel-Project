@@ -30,19 +30,22 @@ Route::get('/logout', function () {
 });
 
 
-Route::get('/admin', [adminController::class, 'index']); 
-Route::get('/category', [adminController::class, 'categories']);
-Route::post('/addCategory', [adminController::class, 'addCategory']);
-Route::put('/editCategory', [adminController::class, 'editCategory']);
-Route::post('/deleteCategory', [adminController::class, 'deleteCategory']);
-Route::get('/users', [adminController::class, 'users']);
-Route::post('/addUser', [adminController::class, 'addUser']);
-Route::put('/editUser', [adminController::class, 'editUser']);
-Route::post('/deleteUser', [adminController::class, 'deleteUser']);
-Route::get('/services', [adminController::class, 'services']);
-Route::post('/addService', [adminController::class, 'addService']);
-Route::put('/editService', [adminController::class, 'editService']);
-Route::post('/deleteService', [adminController::class, 'deleteService']);
+Route::middleware('admin')->group(function () {
+    Route::get('/admin', [adminController::class, 'index']);
+    Route::get('/category', [adminController::class, 'categories']);
+    Route::post('/addCategory', [adminController::class, 'addCategory']);
+    Route::put('/editCategory', [adminController::class, 'editCategory']);
+    Route::post('/deleteCategory', [adminController::class, 'deleteCategory']);
+    Route::get('/users', [adminController::class, 'users']);
+    Route::post('/addUser', [adminController::class, 'addUser']);
+    Route::put('/editUser', [adminController::class, 'editUser']);
+    Route::post('/deleteUser', [adminController::class, 'deleteUser']);
+    Route::get('/services', [adminController::class, 'services']);
+    Route::post('/addService', [adminController::class, 'addService']);
+    Route::put('/editService', [adminController::class, 'editService']);
+    Route::post('/deleteService', [adminController::class, 'deleteService']);
+});
+
 
 
 Route::view('/signup', 'signup');
