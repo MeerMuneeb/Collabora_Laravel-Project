@@ -21,12 +21,6 @@ footer{
     width: 100%;
     padding: 0px 0px;
     padding-bottom: 20px;
-    
-    /*background-color: #d0f0f8;
-    -webkit-mask-image: url("../Images/background-footer.svg");
-    mask-image: url("../Images/background-footer.svg");
-    -webkit-mask-size: cover;
-    mask-size: cover;*/
 }
 
 .container__footer{
@@ -112,20 +106,20 @@ footer{
 
         <div class="box__footer">
             <h2>Popular Categories</h2>
-            <a href="https://www.google.com">Graphic Designing</a>
-            <a href="#">Video Editing</a>
-            <a href="#">Business Education</a>
-            <a href="#">Photography</a>
-            <a href="#">Martial Arts</a>
+            <a href="/Cexplore/8">Graphic Designing</a>
+            <a href="/Cexplore/9">Video Editing</a>
+            <a href="/Cexplore/10">Business Education</a>
+            <a href="/Cexplore/11">Photography</a>
+            <a href="/Cexplore/12">Martial Arts</a>
         </div>
 
         <div class="box__footer">
             <h2>Popular Services</h2>
-            <a href="#">Logo Designing</a>
-            <a href="#">Reel Making</a>
-            <a href="#">Entrepreneurship Course</a>
-            <a href="#">Boxing in 60 Days</a>
-            <a href="#">Wildlife Photography</a>              
+            <a href="/detail/11">Logo Designing</a>
+            <a href="/detail/15">Reel Making</a>
+            <a href="/detail/14">Entrepreneurship Course</a>
+            <a href="/detail/12">Boxing in 60 Days</a>
+            <a href="/detail/13">Wildlife Photography</a>              
         </div>
 
         <div class="box__footer">

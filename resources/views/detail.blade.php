@@ -1,9 +1,6 @@
 @extends('master')
 @section("content")
 
-
-
-
 {{-- <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -27,6 +24,7 @@
         </div>
     </div>
 </div> --}}
+
 <section class="py-5" style="margin-top:-50px;">
     
     <div class="jumbotron jb">
@@ -47,7 +45,7 @@
                     </a>
                     <h3><i class="glyphicon glyphicon-user"></i>  COLLABORA</h3>
                     <h1 style="font-weight: bold; font-size: 50px;">PRICE: ${{$service['price']}}</h1>
-                    <h3><strong>CATEGORY:</strong> {{$service['category']}}</h3>
+                    <h3><strong>CATEGORY:</strong> {{$category['name']}}</h3>
                     <br>
                     <h4>{{$service['description']}}</h4>
                     <br>

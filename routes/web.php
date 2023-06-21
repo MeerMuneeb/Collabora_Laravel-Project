@@ -53,3 +53,4 @@ Route::get('/toExplore', [homeController::class, 'toExplore']);
 Route::get('/detail/{id}', [homeController::class, 'detail']);
 Route::get('/Cexplore/{id}', [homeController::class, 'Cexplore']);
 Route::post('/purchased', [homeController::class, 'purchased']);
+Route::post('/searchDetail', [homeController::class, 'searchDetail']);

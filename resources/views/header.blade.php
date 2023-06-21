@@ -43,9 +43,10 @@
         <li id="loginBtn"><a href="/login" style="box-sizing: border-box; border: 5px white;"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       @endif
     </ul>
-    <form class="navbar-form navbar-right" action="/action_page.php">
+    <form class="navbar-form navbar-right" action="/searchDetail" method="POST">
+      @csrf
       <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" name="Sname">
         <div class="input-group-btn">
           <button class="btn btn-default" type="submit">
             <i class="glyphicon glyphicon-search"></i>

@@ -25,13 +25,15 @@ class homeController extends Controller
         // $data= user::latest()->first();
         // log::debug("YOUTTAG",[$data]);        
         $data = Service::all();
-        return view('explore', ['services'=>$data]);
+        $flag = 'false';
+        return view('explore', ['services' => $data, 'searchFlag' => $flag]);;
     }
     function detail($id){
 
         $data = Service::find($id);
+        $Category = Category::find($data->category);
         $Sdata = Service::all();
-        return view('detail', ['service'=>$data, 'services'=>$Sdata]);
+        return view('detail', ['service'=>$data, 'services'=>$Sdata, 'category'=>$Category]);
     }
 
     function Cexplore($id){
@@ -54,6 +56,13 @@ class homeController extends Controller
             return redirect('/login');
         }
         
+    }
+
+    function searchDetail(Request $req){
+        $searchString = $req->Sname;
+        $data = Service::where('name', 'like', '%' . $searchString . '%')->get();
+        $flag = 'true';
+        return view('explore', ['services' => $data, 'searchFlag' => $flag, 'searchString' => $searchString]);;
     }
   
    

@@ -3,7 +3,11 @@
 <section class="py-5" style="margin-top:-50px;">
     <div class="jumbotron jb">
         <div class="container-fluid" style="max-width:1600px; padding:0 40px;">
-            <h2 class="display-4"><strong><center>EXPLORE</center></strong></h2>            
+            @if($searchFlag === 'true')
+                <h2 class="display-4"><center>Result for: "<strong>{{$searchString}}</strong>"</center></h2>
+            @else
+                <h2 class="display-4"><strong><center>EXPLORE</center></strong></h2>    
+            @endif        
         </div>
     </div>
     <div class="container-fluid explore-services">
